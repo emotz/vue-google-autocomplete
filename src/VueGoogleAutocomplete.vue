@@ -43,6 +43,10 @@
           enableGeolocation: {
             type: Boolean,
             default: false
+          },
+
+          value: {
+            type: String
           }
         },
 
@@ -72,6 +76,12 @@
               this.autocomplete.setComponentRestrictions({
                 country: this.country === null ? [] : this.country
               });
+            },
+            value: {
+              handler: function(newVal, oldVal) {
+                this.autocompleteText = newVal;
+              },
+              immediate: true
             }
         },
 
